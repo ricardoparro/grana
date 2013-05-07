@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "_BlankMaster.cshtml";
+}
+
+@section beforeBody {
+    @Html.Partial("_Header")
+}
+
+@RenderSection("noFormBody", required:false)
+
+@{ Html.BeginForm(); }
+    @RenderBody()
+@{ Html.EndForm(); }
+
+@section footerAfterScripts {
+    @RenderSection("footerAfterScript", required:false)
+}

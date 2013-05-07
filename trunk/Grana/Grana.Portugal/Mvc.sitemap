@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0" enableLocalization="true">
+  <mvcSiteMapNode title="Home" controller="Welcome" action="Index" >
+  <mvcSiteMapNode title="Utilizadores" controller="User" action="Index">
+    <mvcSiteMapNode title="Criar Utilizador" controller="User" action="CreateUser"/>
+  </mvcSiteMapNode>
+    <mvcSiteMapNode title="Entradas" controller="Application" action="Index">
+      <mvcSiteMapNode title="Pendentes" controller="Application" action="Undecided"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Arquivadas/Rejeitadas" controller="Application" action="Declined"></mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Clientes" controller="Applicant" action="Index">
+  </mvcSiteMapNode>
+  
+  <mvcSiteMapNode title="Pagamentos" controller="Payments" action="Index">
+    <mvcSiteMapNode title="Pagamentos Pendentes" controller="Payments" action="PaymentsToBeProcessed"/>
+    </mvcSiteMapNode>
+  </mvcSiteMapNode>
+</mvcSiteMap>

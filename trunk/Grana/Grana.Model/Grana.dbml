@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Grana" Class="GranaDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=Grana;Persist Security Info=True;User ID=sa" SettingsObjectName="Grana.Model.Properties.Settings" SettingsPropertyName="GranaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Address" Member="Addresses">
+    <Type Name="Address">
+      <Column Name="AddressId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Postcode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Neighborhood" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Member="Address1" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Complement" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdderId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Applicant_Address" Member="Applicant" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Applicant" IsForeignKey="true" />
+      <Association Name="aspnet_Membership_Address" Member="aspnet_Membership" ThisKey="UserAdderId" OtherKey="UserId" Type="aspnet_Membership" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Applicant" Member="Applicants">
+    <Type Name="Applicant">
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleNames" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="HomeStatus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MaritalStatus" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfDependants" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OwnCar" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CarLicense" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SocialSecurityNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdentityNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Applicant_Address" Member="Addresses" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Address" />
+      <Association Name="Applicant_Contact" Member="Contacts" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Contact" />
+      <Association Name="Applicant_BankCard" Member="BankCards" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="BankCard" />
+      <Association Name="Applicant_BankAccount" Member="BankAccounts" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="BankAccount" />
+      <Association Name="Applicant_Employment" Member="Employments" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Employment" />
+      <Association Name="Applicant_Note" Member="Notes" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Note" />
+      <Association Name="Applicant_Application" Member="Applications" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Application" />
+      <Association Name="Applicant_Document" Member="Documents" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Document" />
+      <Association Name="aspnet_Membership_Applicant" Member="aspnet_Membership" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Membership" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Membership" Member="aspnet_Memberships">
+    <Type Name="aspnet_Membership">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordFormat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="MobilePIN" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="LoweredEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordQuestion" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordAnswer" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsLockedOut" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastPasswordChangedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLockoutDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="aspnet_Membership_Address" Member="Addresses" ThisKey="UserId" OtherKey="UserAdderId" Type="Address" />
+      <Association Name="aspnet_Membership_Applicant" Member="Applicants" ThisKey="UserId" OtherKey="UserId" Type="Applicant" />
+      <Association Name="aspnet_Membership_Contact" Member="Contacts" ThisKey="UserId" OtherKey="UserAdderId" Type="Contact" />
+      <Association Name="aspnet_Membership_BankCard" Member="BankCards" ThisKey="UserId" OtherKey="UserAdderId" Type="BankCard" />
+      <Association Name="aspnet_Membership_BankAccount" Member="BankAccounts" ThisKey="UserId" OtherKey="UserAdderId" Type="BankAccount" />
+      <Association Name="aspnet_Membership_Employment" Member="Employments" ThisKey="UserId" OtherKey="UserAdderId" Type="Employment" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContactType" Member="ContactTypes">
+    <Type Name="ContactType">
+      <Column Name="ContactTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ContactType_Contact" Member="Contacts" ThisKey="ContactTypeId" OtherKey="ContactTypeId" Type="Contact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contact" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="ContactId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContactTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactDetail" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdderId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Applicant_Contact" Member="Applicant" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Applicant" IsForeignKey="true" />
+      <Association Name="ContactType_Contact" Member="ContactType" ThisKey="ContactTypeId" OtherKey="ContactTypeId" Type="ContactType" IsForeignKey="true" />
+      <Association Name="aspnet_Membership_Contact" Member="aspnet_Membership" ThisKey="UserAdderId" OtherKey="UserId" Type="aspnet_Membership" IsForeignKey="true" />
+      <Association Name="Application_Contact" Member="Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BankCard" Member="BankCards">
+    <Type Name="BankCard">
+      <Column Name="BankCardId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CardHolder" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CardNumber" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="SecurityCode" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdderId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Applicant_BankCard" Member="Applicant" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Applicant" IsForeignKey="true" />
+      <Association Name="aspnet_Membership_BankCard" Member="aspnet_Membership" ThisKey="UserAdderId" OtherKey="UserId" Type="aspnet_Membership" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BankAgency" Member="BankAgencies">
+    <Type Name="BankAgency">
+      <Column Name="BankAgencyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cnpj" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SequencialCnpj" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DvCnpj" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EntityName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Segment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AgencyCode" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AgencyName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Complement" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Neighborhood" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Postcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ddd" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BankAccount" Member="BankAccounts">
+    <Type Name="BankAccount">
+      <Column Name="BankAccountId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccountHolder" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="BankName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccountNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdderId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BankAgencyCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Applicant_BankAccount" Member="Applicant" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Applicant" IsForeignKey="true" />
+      <Association Name="aspnet_Membership_BankAccount" Member="aspnet_Membership" ThisKey="UserAdderId" OtherKey="UserId" Type="aspnet_Membership" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employment" Member="Employments">
+    <Type Name="Employment">
+      <Column Name="EmploymentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmploymentStatus" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployersName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MonthlyIncome" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Industry" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeAtEmployer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkPhone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DirectDebit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IncomeFrequency" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PayDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdderId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Applicant_Employment" Member="Applicant" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Applicant" IsForeignKey="true" />
+      <Association Name="aspnet_Membership_Employment" Member="aspnet_Membership" ThisKey="UserAdderId" OtherKey="UserId" Type="aspnet_Membership" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Note" Member="Notes">
+    <Type Name="Note">
+      <Column Name="NoteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserAdderId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Applicant_Note" Member="Applicant" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Applicant" IsForeignKey="true" />
+      <Association Name="Application_Note" Member="Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Application" IsForeignKey="true" />
+      <Association Name="aspnet_User_Note" Member="aspnet_User" ThisKey="UserAdderId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Application" Member="Applications">
+    <Type Name="Application">
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AffiliateSource" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ApplicationIp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="SmallMoney NOT NULL" CanBeNull="false" />
+      <Column Name="PaybackDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InterestRate" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AppStatus" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Application_Contact" Member="Contacts" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Contact" />
+      <Association Name="Application_Note" Member="Notes" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Note" />
+      <Association Name="Application_Document" Member="Documents" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Document" />
+      <Association Name="Application_ReasonLog" Member="ReasonLogs" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="ReasonLog" />
+      <Association Name="Application_ActionLog" Member="ActionLogs" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="ActionLog" />
+      <Association Name="Applicant_Application" Member="Applicant" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Applicant" IsForeignKey="true" />
+      <Association Name="ApplicationStatus_Application" Member="ApplicationStatus" ThisKey="AppStatus" OtherKey="ApplicationStatusText" Type="ApplicationStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ApplicationStatus" Member="ApplicationStatus">
+    <Type Name="ApplicationStatus">
+      <Column Name="ApplicationStatusText" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ApplicationStatus_Application" Member="Applications" ThisKey="ApplicationStatusText" OtherKey="AppStatus" Type="Application" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
+    <Type Name="aspnet_User">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredUserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_Membership" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Membership" Cardinality="One" />
+      <Association Name="aspnet_User_Note" Member="Notes" ThisKey="UserId" OtherKey="UserAdderId" Type="Note" />
+      <Association Name="aspnet_User_Document" Member="Documents" ThisKey="UserId" OtherKey="UserAdderId" Type="Document" />
+      <Association Name="aspnet_User_ReasonLog" Member="ReasonLogs" ThisKey="UserId" OtherKey="UserAdderId" Type="ReasonLog" />
+      <Association Name="aspnet_User_ActionLog" Member="ActionLogs" ThisKey="UserId" OtherKey="UserId" Type="ActionLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Document" Member="Documents">
+    <Type Name="Document">
+      <Column Name="DocumentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DocumentName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="DocumentPath" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdderId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Applicant_Document" Member="Applicant" ThisKey="ApplicantId" OtherKey="ApplicantId" Type="Applicant" IsForeignKey="true" />
+      <Association Name="Application_Document" Member="Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Application" IsForeignKey="true" />
+      <Association Name="aspnet_User_Document" Member="aspnet_User" ThisKey="UserAdderId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reason" Member="Reasons">
+    <Type Name="Reason">
+      <Column Name="ReasonId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Reason_ReasonLog" Member="ReasonLogs" ThisKey="ReasonId" OtherKey="ReasonId" Type="ReasonLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReasonLog" Member="ReasonLogs">
+    <Type Name="ReasonLog">
+      <Column Name="ReasonLogId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReasonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdderId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="DateLogged" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Application_ReasonLog" Member="Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Application" IsForeignKey="true" />
+      <Association Name="aspnet_User_ReasonLog" Member="aspnet_User" ThisKey="UserAdderId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="Reason_ReasonLog" Member="Reason" ThisKey="ReasonId" OtherKey="ReasonId" Type="Reason" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActionLog" Member="ActionLogs">
+    <Type Name="ActionLog">
+      <Column Name="ActionLogId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="DateExecuted" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Application_ActionLog" Member="Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Application" IsForeignKey="true" />
+      <Association Name="aspnet_User_ActionLog" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

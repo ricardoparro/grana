@@ -1,0 +1,35 @@
+﻿
+<div id="sms-section" style="display: none;"  class="section sms">
+    <h2>Enviar Sms ao Cliente</h2>
+    <br/>
+    <br/>
+    <table>
+        <tr>
+            <td ></td>
+            <td>
+                Para: @Model.MobilePhone.ContactDetail
+                <br/>
+               
+            </td>
+        </tr>
+        <tr>
+            <td>Mensagem </td>
+            <td>
+                @Html.TextArea("smsMessage","", new { @class = "generic-input" })
+                <br/>
+                <span id="fieldvalsms" class="field-validation-error"></span>
+            </td>
+        </tr>
+         <tr>
+            <td></td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" onclick="ApplicationDetails.SendSms('@Url.Action("SendSms")',  @Model.Application.ApplicationId)" value="Enviar Sms"/>
+            </td>
+        </tr>
+    </table>
+</div>

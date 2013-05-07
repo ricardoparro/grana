@@ -1,0 +1,669 @@
+﻿@using Grana.Model
+@using Grana.Model.EnumModel
+@using Grana.Model.ViewModel.ApplicationDetails
+@using Grana.Portugal.ViewHelpers
+@model ApplicationDetails
+<div style="height:100%;margin:auto;" > 
+    <div id="leftPanel" >
+    <div id="application_header">
+        <div onclick="ApplicationDetails.ShowInfoSection('summary');">
+            <div class="applicant-name">
+                <div class="header-name read-only"  tabindex="-1"> 
+                    <span id="first-name">@Model.Applicant.FirstName</span>
+                    <span id="last-name">@Model.Applicant.LastName</span>
+                    <span id="application-status" class="application-status @Model.Application.ApplicationStatusAsEnum.ToString().ToLower()">@Application.GetPortugueseNameOfStatus(Model.Application.ApplicationStatusAsEnum)</span>        
+                </div>
+            </div>
+        </div>
+        @Html.Hidden("Application.AppStatus", Model.Application.AppStatus)
+        <div id="header_toolbar">
+            <div class="loading-boundary">
+                <div id="header_toolbar_container">
+                    <table class="toolbar">
+                        <tr>
+                            <td class="toolbar-column">
+                                <div class="toolbar-section">
+                                    <span class="toggle-group">
+                                        <div id="group_by_priority" class="button toggle-button unselected" onclick="ApplicationDetails.ShowRightPanelSection('email');">
+                                            <span class="button-text">Enviar Email</span>
+                                        </div>
+                                        <div id="group_by_priority" class="button toggle-button unselected" onclick="ApplicationDetails.ShowRightPanelSection('sms');">
+                                            <span class="button-text">Enviar Sms</span>
+                                        </div>
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="toolbar-column-wide"></td>
+                            <td class="toolbar-column">
+                                <div class="toolbar-right">
+                                <a id="notes_menu" class="dropdown-menu-link " tabindex="-1">
+                                        <div class="toolbar-button"><span class="button-text">Notas</span>
+                                            <span class="button-arrow"></span>
+                                        </div>
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <a id="documents_menu" class="dropdown-menu-link " tabindex="-1">
+                                        <div class="toolbar-button"><span class="button-text" >Documents</span>
+                                            <span class="button-arrow"></span>
+                                        </div>
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <a id="decision_menu" class="dropdown-menu-link " tabindex="-1">
+                                        <div class="toolbar-button"><span class="button-text">Decisão</span>
+                                            <span class="button-arrow"></span>
+                                        </div>
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <a id="archive_menu" class="dropdown-menu-link " tabindex="-1">
+                                        <div class="toolbar-button">
+                                            <span class="button-text">Consultar Risco</span>
+                                            <span class="button-arrow"></span>
+                                        </div>
+                                        <span class="arrow"></span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="toggle-group">
+            <div class="ui-dialog-buttonpane toggle-button unselected">
+                <span class="button-text"></span>
+            </div>
+        </div>
+        <div class="applicationStatus"></div>
+    </div>
+    </div>
+    <div id="mainPanel" >
+        <table id="grid">
+            <tr id="@StringHelper.RemoveDiacritics(FormSections.Name)" onclick="ApplicationDetails.ShowInfoSection('@StringHelper.RemoveDiacritics(FormSections.Name)');" class="stripe completed grid_row project_group">
+                <td class="grid_cell_item_number">
+                </td>
+                <td  class="grid_cell_string non_insert_mode">Nome</td>
+                <td class="grid_tags_and_date">
+                    <div id="luna8" class="button" >
+                        <span class="button-icon detail-pane-toggle more-detail"></span>
+                    </div>
+                </td>
+            </tr>
+                <tr id="@StringHelper.RemoveDiacritics(FormSections.LoanInfo)" onclick="ApplicationDetails.ShowInfoSection('@StringHelper.RemoveDiacritics(FormSections.LoanInfo)');"  class="stripe completed grid_row project_group">
+                <td class="grid_cell_item_number">
+                </td>
+                <td  class="grid_cell_string non_insert_mode">Dados do Empréstimo</td>
+                <td class="grid_tags_and_date">
+                    <div id="luna8" class="button">
+                        <span class="button-icon detail-pane-toggle more-detail"></span>
+                    </div>
+                </td>
+                </tr>
+                <tr id="@StringHelper.RemoveDiacritics(FormSections.PersonalInfo)" onclick="ApplicationDetails.ShowInfoSection('@StringHelper.RemoveDiacritics(FormSections.PersonalInfo)');" class="stripe completed grid_row project_group">
+                    <td class="grid_cell_item_number">
+                    </td>
+                    <td  class="grid_cell_string non_insert_mode">Dados Pessoais</td>
+                    <td class="grid_tags_and_date">
+                        <div id="luna8" class="button">
+                            <span class="button-icon detail-pane-toggle more-detail"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr id="@StringHelper.RemoveDiacritics(FormSections.Employment)" onclick="ApplicationDetails.ShowInfoSection('@StringHelper.RemoveDiacritics(FormSections.Employment)');" class="stripe completed grid_row project_group">
+                <td class="grid_cell_item_number">
+                </td>
+                <td  class="grid_cell_string non_insert_mode">Emprego</td>
+                <td class="grid_tags_and_date">
+                    <div id="luna8" class="button">
+                        <span class="button-icon detail-pane-toggle more-detail"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="@StringHelper.RemoveDiacritics(FormSections.Contacts)" onclick="ApplicationDetails.ShowInfoSection('@StringHelper.RemoveDiacritics(FormSections.Contacts)');" class="stripe completed grid_row project_group">
+                <td class="grid_cell_item_number">
+                </td>
+                <td  class="grid_cell_string non_insert_mode">Contatos</td>
+                <td class="grid_tags_and_date">
+                    <div id="luna8" class="button">
+                        <span class="button-icon detail-pane-toggle more-detail"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="@StringHelper.RemoveDiacritics(FormSections.Address)" onclick="ApplicationDetails.ShowInfoSection('@StringHelper.RemoveDiacritics(FormSections.Address)');" class="stripe completed grid_row project_group">
+                <td class="grid_cell_item_number">
+                </td>
+                <td  class="grid_cell_string non_insert_mode">Endereço</td>
+                <td class="grid_tags_and_date">
+                    <div id="luna8" class="button">
+                        <span class="button-icon detail-pane-toggle more-detail"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="@StringHelper.RemoveDiacritics(FormSections.BankAccount)" onclick="ApplicationDetails.ShowInfoSection('@StringHelper.RemoveDiacritics(FormSections.BankAccount)');" class="stripe completed grid_row project_group">
+                <td class="grid_cell_item_number">
+                </td>
+                <td  class="grid_cell_string non_insert_mode">Conta Bancária</td>
+                <td class="grid_tags_and_date">
+                    <div id="luna8" class="button">
+                        <span class="button-icon detail-pane-toggle more-detail"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr id="@StringHelper.RemoveDiacritics(FormSections.BankCard)" onclick="ApplicationDetails.ShowInfoSection('@StringHelper.RemoveDiacritics(FormSections.BankCard)');" class="stripe completed grid_row project_group">
+                <td class="grid_cell_item_number">
+                </td>
+                <td  class="grid_cell_string non_insert_mode">Cartão</td>
+                <td class="grid_tags_and_date">
+                    <div id="luna8" class="button">
+                        <span class="button-icon detail-pane-toggle more-detail"></span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="rightPanel" >
+            <div class="details-pane-toolbar">
+            <div class="details-pane-header">
+            <div class="error-section"></div>
+               <div class="complete-button mark-incomplete default-button button" id="successValidator"> 
+                <span class="button-text">
+                    <div>
+                        <span class="button-icon"></span>
+                        <span class="default-text complete-text">Dados modificados com sucesso</span>
+                    </div>
+                </span>
+            </div>
+                <a class="close-x" onclick="ApplicationDetails.CloseRightPanel();"></a>
+            </div>
+        </div>
+        
+        <div class="section summary"  style="display:none;">
+            @Html.Hidden("Applicant.ApplicantId", Model.Applicant.ApplicantId)
+            <table>
+                <tr>
+                    <td >Nome: </td>
+                    <td>@Model.Applicant.FirstName</td>
+                </tr>
+                <tr>
+                    <td >Outros nomes: </td>
+                    <td>@Model.Applicant.MiddleNames</td>
+                </tr>
+                <tr>
+                    <td>Sobrenome: </td>
+                    <td>@Model.Applicant.LastName</td>
+                </tr>
+            </table>
+        </div>
+        @Html.Partial("_NameForm", Model.Applicant)
+        <div class="section @StringHelper.RemoveDiacritics(FormSections.LoanInfo)">
+            @Html.Hidden("Application.ApplicationId", Model.Application.ApplicationId)
+            <table>
+                <tr>
+                    <td >Valor do empréstimo </td>
+                    <td>
+                        @Html.TextBox("Application.Amount", @Model.Application.Amount.ToString("N0"), new{@class = "loan-amount generic-input"})
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Data de pagamento do empréstimo</td>
+                    <td>
+                        @Html.TextBox("Application.PaybackDate", @Model.Application.PaybackDate.ToShortDateString(), new { @class = "date generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Juros </td>
+                    <td>
+                        @Model.Application.InterestRate.ToString()
+                    </td>
+                </tr>
+                <tr>
+                    <td >Endereço IP </td>
+                    <td>@Model.Application.ApplicationIp</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" onclick="ApplicationDetails.UpdateApplicationDetails('@Url.Action("ApplicationDetails")')" value="Alterar"/></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section @StringHelper.RemoveDiacritics(FormSections.PersonalInfo)">
+            <table>
+                <tr>
+                    <td >Sexo: </td>
+                    <td>
+                        Masculino @Html.RadioButton("Applicant.Gender", "Male", Model.Applicant.Gender == "Male")
+                        Feminino @Html.RadioButton("Applicant.Gender", "Female", Model.Applicant.Gender == "Female")
+                   </td>
+                </tr>
+                <tr>
+                    <td >Data de Nascimento </td>
+                    <td>
+                    @Html.TextBox("Applicant.BirthDate", @Model.Applicant.BirthDate.ToShortDateString(), new { @class = "date-birth generic-input" })
+                    <br/>
+                    <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Possui Imóvel? </td>
+                    <td>
+                        Sim @Html.RadioButton("Applicant.HomeStatus", true, Model.Applicant.HomeStatus)
+                        Não @Html.RadioButton("Applicant.HomeStatus", false, !Model.Applicant.HomeStatus)
+                    </td>
+                </tr>
+                <tr>
+                    <td >Estado Civil</td>
+                    <td>@Html.DropDownList("Applicant.MaritalStatus", ViewSelectItemFactory.AddMaritalStatus(Model.Applicant.MaritalStatus), new { @class = "generic-input" })</td>
+                </tr>
+                <tr>
+                    <td >Agregado Familiar</td>
+                    <td>
+                        @Html.DropDownList("Applicant.NumberOfDependants", ViewSelectItemFactory.AddAllInNumericRange(1, 15, Model.Applicant.NumberOfDependants, 1, false), new { @class = "generic-input" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tem carro próprio</td>
+                    <td>
+                        Sim @Html.RadioButton("Applicant.OwnCar", true, Model.Applicant.OwnCar, new { onclick = "ApplicationDetails.ShowElement('license')" })
+                        Não @Html.RadioButton("Applicant.OwnCar", false, !Model.Applicant.OwnCar, new { onclick = "ApplicationDetails.HideElement('license')" })
+                        <br/><br/>
+                      <label class="@(Model.Applicant.OwnCar ? "" : "own-car ")license">Matrícula</label> @Html.TextBox("Applicant.CarLicense", @Model.Applicant.CarLicense, new { @class = (Model.Applicant.OwnCar ? "license generic-input" : "own-car license generic-input") })
+                    <br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td >CPF </td>
+                    <td>
+                        @Html.TextBox("Applicant.SocialSecurityNumber", @Model.Applicant.SocialSecurityNumber, new { @class = "generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td >RG (Registro Geral)</td>
+                    <td>
+                        @Html.TextBox("Applicant.IdentityNumber", @Model.Applicant.IdentityNumber, new { @class = "generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" onclick="ApplicationDetails.UpdateApplicationDetails('@Url.Action("ApplicationDetails")')" value="Alterar"/></td>
+                </tr>
+            </table>
+        </div>
+        @if(Model.Employment != null){
+            @Html.Hidden("Employment.EmploymentId", Model.Employment.EmploymentId)
+        <div class="section @StringHelper.RemoveDiacritics(FormSections.Employment)">
+        <table id="employmentStatusTable" class="@Model.Employment.EmploymentStatus">
+            <tr>
+                <td >Tipo de trabalho</td>
+                <td> @Html.DropDownList("Employment.EmploymentStatus", ViewSelectItemFactory.AddEmploymentStatus(Model.Employment.EmploymentStatus), new { @class = "generic-input", onclick="ApplicationDetails.ChangeEmploymentStatus(this)" })</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="rendimento-label">
+                        Rendimento mensal
+                    </div>
+                    <div class="label">
+                        Salário(liquido mensal)
+                    </div>
+                </td>
+                <td> 
+                    @Html.TextBox("Employment.MonthlyIncome", Model.Employment.MonthlyIncome.ToString("D0"), new { @class = "generic-input" })
+                    <br/>
+                    <span class="field-validation-error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                     <div class="universidade-label">
+                            Escola/Universidade
+                    </div>
+                    <div class="label-empresa">
+                        Nome da empresa
+                    </div>
+                </td>
+                <td> 
+                    @Html.TextBox("Employment.EmployersName", Model.Employment.EmployersName, new { @class = "generic-input" })
+                    <br/>
+                    <span class="field-validation-error"></span>                    
+                </td>
+            </tr>
+            <tr >
+                <td>Indústria</td>
+                <td>
+                    @Html.DropDownList("Employment.Industry", ViewSelectItemFactory.AddIndustry(Model.Employment.Industry), new { @class = "generic-input" })
+                </td>
+            </tr>
+            <tr >
+                <td>Cargo</td>
+                <td>
+                    @Html.TextBox("Employment.Position", Model.Employment.Position, new { @class = "generic-input" })
+                    <br/>
+                    <span class="field-validation-error"></span>                                        
+                </td>
+            </tr>
+            <tr >
+                <td>
+                    <div class="universidade-label">
+                        Tempo nesta Escola/Universidade
+                    </div>
+                    <div class="label-empresa">
+                        Tempo de trabalho nesta empresa
+                    </div>
+                </td>
+                <td>
+                    @Html.TextBox("Employment.TimeAtEmployer", Model.Employment.TimeAtEmployer, new { @class = "generic-input" })
+                    <span class="field-validation-error"></span>
+                    <br/>                                        
+                </td>
+            </tr>
+            <tr>
+                <td>Telefone Comercial</td>
+                <td>
+                    @Html.TextBox("Employment.WorkPhone", Model.Employment.WorkPhone, new { @class = "generic-input" })
+                    <br/>
+                    <span class="field-validation-error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Frequencia de pagamento salarial</td>
+                <td>
+                    @Html.DropDownList("Employment.IncomeFrequency", ViewSelectItemFactory.AddIncomeFrequency(Model.Employment.IncomeFrequency), new { @class = "generic-input" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="rendimento-label">
+                        O seu rendimento e pago diretamente na sua conta bancária?
+                    </div>
+                    <div class="label">
+                        O seu salário e pago diretamente na sua conta bancária?
+                    </div>
+                </td>
+                <td>
+                    Sim @Html.RadioButton("Model.Employment.DirectDebit", true, Model.Employment.DirectDebit)
+                    Não @Html.RadioButton("Model.Employment.DirectDebit", false, !Model.Employment.DirectDebit)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="rendimento-label">
+                        Próxima data de pagamento do seu rendimento
+                    </div>
+                    <div class="label">
+                        Próxima data de pagamento do seu salário
+                    </div>
+                </td>
+                <td>
+                    @Html.TextBox("Employment.PayDate", Model.Employment.PayDate.ToShortDateString(), new { @class = "date generic-input" })
+                    <br/>
+                    <span class="field-validation-error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" onclick="ApplicationDetails.UpdateApplicationDetails('@Url.Action("ApplicationDetails")')" value="Alterar"/></td>
+            </tr>
+        </table>
+    </div>}
+          
+    <div class="section @StringHelper.RemoveDiacritics(FormSections.Contacts)">
+    @Html.Hidden("HomePhone.ContactId", Model.HomePhone.ContactId)
+    @Html.Hidden("MobilePhone.ContactId", Model.MobilePhone.ContactId)
+    @Html.Hidden("EmailAddress.ContactId", Model.EmailAddress.ContactId)
+    @Html.Hidden("HomePhone.ContactTypeId", Model.HomePhone.ContactTypeId)
+    @Html.Hidden("MobilePhone.ContactTypeId", Model.MobilePhone.ContactTypeId)
+    @Html.Hidden("EmailAddress.ContactTypeId", Model.EmailAddress.ContactTypeId)
+            <table>
+                <tr>
+                    <td >Telefone Resedêncial</td>
+                    <td>
+                        @Html.TextBox("HomePhone.ContactDetail", Model.HomePhone.ContactDetail, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Telefone Celular</td>
+                    <td>
+                        @Html.TextBox("MobilePhone.ContactDetail", Model.MobilePhone.ContactDetail, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td >Email</td>
+                    <td>
+                        @Html.TextBox("EmailAddress.ContactDetail", Model.EmailAddress.ContactDetail, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" onclick="ApplicationDetails.UpdateApplicationDetails('@Url.Action("ApplicationDetails")')" value="Alterar"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="section @StringHelper.RemoveDiacritics(FormSections.Address)">
+        @Html.Hidden("Address.AddressId", Model.Address.AddressId)
+            <table>
+                <tr>
+                    <td >CEP</td>
+                    <td>
+                        @Html.TextBox("Address.Postcode", Model.Address.Postcode, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>UF (União da federação)</td>
+                    <td>
+                        @Html.TextBox("Address.State", Model.Address.State, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>                                                
+                    </td>
+                </tr>
+                <tr>
+                    <td >Cidade</td>
+                    <td>
+                        @Html.TextBox("Address.City", Model.Address.City, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>                                                
+                    </td>
+                </tr>
+                <tr>
+                    <td >Bairro</td>
+                    <td>
+                        @Html.TextBox("Address.Neighborhood", Model.Address.Neighborhood, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td >Endereço</td>
+                    <td>
+                        @Html.TextBox("Address.Address1", Model.Address.Address1, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Número</td>
+                    <td>
+                        @Html.TextBox("Address.Number", Model.Address.Number, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td >Complemento</td>
+                    <td>
+                        @Html.TextBox("Address.Complement", Model.Address.Complement, new { @class = "generic-input" })
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" onclick="ApplicationDetails.UpdateApplicationDetails('@Url.Action("ApplicationDetails")')" value="Alterar"/></td>
+                </tr>
+            </table>
+        </div>       
+    <div class="section @StringHelper.RemoveDiacritics(FormSections.BankAccount)">
+           @Html.Hidden("BankAccount.BankAccountId", Model.BankAccount.BankAccountId) 
+            <table>
+                <tr>
+                    <td >Nome Registado na Conta</td>
+                    <td>
+                        @Html.TextBox("BankAccount.AccountHolder", Model.BankAccount.AccountHolder, new { @class = "generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nome do Banco</td>
+                    <td>
+                        @Html.TextBox("BankAccount.BankName", Model.BankAccount.BankName, new { @class = "generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Agência</td>
+                    <td>
+                        @Html.TextBox("BankAccount.BankAgencyCode", Model.BankAccount.BankAgencyCode, new { @class = "generic-input" })
+                        
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Numero da Conta Corrente</td>
+                    <td>
+                        @Html.TextBox("BankAccount.AccountNumber", Model.BankAccount.AccountNumber, new { @class = "generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" onclick="ApplicationDetails.UpdateApplicationDetails('@Url.Action("ApplicationDetails")')" value="Alterar"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="section @StringHelper.RemoveDiacritics(FormSections.BankCard)">
+           @Html.Hidden("BankCard.BankCardId", Model.BankCard.BankCardId) 
+            <table>
+                <tr>
+                    <td >Número do cartão</td>
+                    <td>
+                        @Html.TextBox("BankCard.CardNumber", Model.BankCard.CardNumber, new { @class = "generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Válido até</td>
+                    <td>
+                        @Html.TextBox("BankCard.ExpiryDate", Model.BankCard.ExpiryDate.ToShortDateString(), new { @class = "date generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Data de Emissão</td>
+                    <td>
+                        @Html.TextBox("BankCard.StartDate", (Model.BankCard.StartDate.HasValue ? Model.BankCard.StartDate.Value.ToShortDateString() : ""), new { @class = "date generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td >Código de Segurança</td>
+                    <td>
+                        @Html.TextBox("BankCard.SecurityCode", Model.BankCard.SecurityCode, new { type = "password", @class = "generic-input" })
+                        <br/>
+                        <span class="field-validation-error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" onclick="ApplicationDetails.UpdateApplicationDetails('@Url.Action("ApplicationDetails")')" value="Alterar"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+       @Html.Partial("_EmailSection")
+       @Html.Partial("_SmsSection")
+       @Html.Partial("_NotesSection")
+       @Html.Partial("_ListNotesSection", Model.Notes)
+       @Html.Partial("_DocumentsSection")
+       @Html.Partial("_ListDocumentSection", Model.Documents)
+    </div>
+</div>
+@*Menu stuff*@
+<div class="dropdown " id="decision_menu_dropdown_menu" style="left: 554.98px; top: 166.5px; max-height: 318.5px;display:none;">
+    <div class="dropdown-menu ">
+        @if (Model.Application.ApplicationStatusAsEnum == ApplicationStatuses.New || Model.Application.ApplicationStatusAsEnum == ApplicationStatuses.Undecided)
+        {
+            <a id="decision_menu_item_decline" class="menu-item" title="" onclick="ApplicationDetails.ApplicationPopup('popupDeclined')">Rejeitar</a>
+
+            <a id="decision_menu_item_approve" class="menu-item" title=""  onclick="ApplicationDetails.ApplicationPopup('popupApproved')">Aprovar</a>
+        }
+        @if (Model.Application.ApplicationStatusAsEnum == ApplicationStatuses.New){
+        <a id="decision_menu_item_undecided" class="menu-item" title="" onclick="ApplicationDetails.ApplicationPopup('popupPending')">Pendente</a>    
+    }
+    </div>
+</div>
+
+<div class="dropdown " id="notes_menu_dropdown_menu" style="left: 389.98px; top: 166.5px; max-height: 318.5px;display:none;">
+    <div class="dropdown-menu">
+      
+            <a id="notes_menu_item_Add" class="menu-item" title="" onclick="ApplicationDetails.ShowRightPanelSection('note');">Adicionar</a>
+
+            <a id="notes_menu_item_list" class="menu-item" title=""  onclick="ApplicationDetails.ShowRightPanelSection('listnotes');">Listar</a>
+        
+    </div>
+</div>
+<div class="dropdown " id="documents_menu_dropdown_menu" style="left: 469.98px; top: 166.5px; max-height: 318.5px;display:none;">
+    <div class="dropdown-menu">
+            <a id="documents_menu_item_Add" class="menu-item" title="" onclick="ApplicationDetails.ShowRightPanelSection('document');">Upload</a>
+            <a id="documents_menu_item_list" class="menu-item" title=""  onclick="ApplicationDetails.ShowRightPanelSection('listdocuments');">Listar</a>
+    </div>
+</div>
+<div id="popupDeclined" class="popup">  
+        <a class="popupClose">x</a>  
+        <h1>Motivo de rejeição</h1>  
+        <p>  
+            Motivo : @Html.DropDownList("reasonsDeclined", Model.DeclinedReasons, a => a.Description, a => a.ReasonId.ToString(), "", false)
+           <br/><br/><br/>
+            <input type="button" onclick="ApplicationDetails.UpdateApplicationStatus('@Url.Action("UpdateApplicationStatus")', @Model.Application.ApplicationId, '@ApplicationStatuses.Declined.ToString()');" value="Rejeitar"/>
+        </p>  
+    </div>  
+    <div id="backgroundPopup"></div>
+    
+    <div id="popupApproved" class="popup">  
+        <a class="popupClose">x</a>  
+        <h1>Motivo de aprovação</h1>  
+        <p >  
+            Motivo : @Html.DropDownList("reasonsApproved", Model.ApprovedReasons, a => a.Description, a => a.ReasonId.ToString(), "", false)
+           <br/><br/><br/>
+            <input type="button" onclick="ApplicationDetails.UpdateApplicationStatus('@Url.Action("UpdateApplicationStatus")', @Model.Application.ApplicationId, '@ApplicationStatuses.Approved.ToString()');" value="Aprovar"/>
+        </p>  
+    </div>
+     <div id="popupPending" class="popup">  
+        <a class="popupClose">x</a>  
+        <h1>Motivo para colocar a entrada em espera</h1>  
+        <p >  
+           Motivo :  @Html.DropDownList("reasonsPending", Model.PendingReasons, a => a.Description, a => a.ReasonId.ToString(), "", false)
+           <br/><br/><br/>
+            <input type="button" onclick="ApplicationDetails.UpdateApplicationStatus('@Url.Action("UpdateApplicationStatus")', @Model.Application.ApplicationId, '@ApplicationStatuses.Undecided.ToString()');" value="Colocar em espera"/>
+        </p>  
+    </div>    
+    
+
+
+@section footerAfterScript{
+    <script type="text/javascript" language="javascript">
+        ApplicationDetails.Init();
+    </script>
+
+}

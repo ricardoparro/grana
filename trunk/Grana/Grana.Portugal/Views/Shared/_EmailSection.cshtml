@@ -1,0 +1,29 @@
+﻿<div id="email-section" style="display: none;"  class="section email">
+    <h2>Enviar Email ao Cliente</h2>
+    <br/>
+    <br/>
+    <table>
+        <tr>
+            <td >Assunto </td>
+            <td>
+                @Html.TextBox("subject", "",new { @class = "generic-input" })
+                <br/>
+                <span class="field-validation-error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Mensagem </td>
+            <td>
+                @Html.TextArea("message","", new { @class = "generic-input" })
+                <br/>
+                <span class="field-validation-error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" onclick="ApplicationDetails.SendEmail('@Url.Action("ContactCustomer")')" value="Enviar Email"/>
+            </td>
+        </tr>
+    </table>
+</div>

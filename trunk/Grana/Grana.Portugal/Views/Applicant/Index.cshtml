@@ -1,0 +1,66 @@
+﻿<div class="application-list" style="height:100%;margin:auto;" >
+    @using Grana.Model    @using Grana.Model.ViewModel.Applicant    
+    @model ApplicantSearch
+    <div id="leftPanel" >
+        <div id="application_header">
+            <div onclick="ApplicationDetails.ShowInfoSection('summary');">
+                <div class="applicant-name">
+                    <div class="header-name read-only"  tabindex="-1">
+                       <label style="font-size:0.7em">Nome:</label> @Html.TextBox("Firstname", Model.Firstname)
+                       <label style="font-size:0.7em">Sobrenome:</label> @Html.TextBox("LastName", Model.Lastname)
+                       <label style="font-size:0.7em">Celular:</label> @Html.TextBox("Mobile", Model.Mobile)
+                       <label style="font-size:0.7em">CEP:</label> @Html.TextBox("Postcode", Model.Postcode)
+                       <label style="font-size:0.7em">Tel Residêncial:</label> @Html.TextBox("Homephone", Model.Homephone)<br/><br/>
+                       <input type="submit" value="procurar"/>
+                    </div>
+                </div>
+            </div>
+            <div id="header_toolbar">
+                <div class="loading-boundary">
+                    <div id="header_toolbar_container">
+                        <table class="toolbar">
+                            <tr>
+                                <td class="toolbar-column">
+                                    
+                                </td>
+                                <td class="toolbar-column-wide"></td>
+                                <td class="toolbar-column"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="toggle-group">
+                <div class="ui-dialog-buttonpane toggle-button unselected">
+                    <span class="button-text"></span>
+                </div>
+            </div>
+            <div class="applicationStatus"></div>
+        </div>
+        </div>
+        <div id="mainPanel" >
+        
+        <table id="grid">
+        
+            <thead>
+                <th></th>
+                <th style="text-align: left;padding:6px;"> Nome</th>
+                <th style="text-align: left;padding:6px;">RG</th>
+                <th style="text-align: left;padding:6px;">Data de nascimento</th>
+            </thead>
+            @foreach (Applicant newApp in Model.Applicants)
+            {
+            <tr class="stripe completed grid_row project_group">
+                <td class="grid_cell_item_number">
+                </td>
+                 <td  style="width: 160px;">@newApp.FirstName @newApp.LastName</td>
+                <td  style="width: 450px;">@newApp.SocialSecurityNumber</td>
+                <td  style="width: 450px;">@newApp.BirthDate.ToShortDateString()</td>
+                <td style="width: 450px;">@Html.ActionLink("Ver entradas", "ApplicantDetails", new{applicantId = newApp.ApplicantId})</td>
+                
+            </tr>}
+                
+        </table>
+    </div>
+    </div>
+    

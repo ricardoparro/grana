@@ -1,0 +1,34 @@
+﻿<div id="document-section"  class="section document">  
+  <h2>Documents</h2>
+
+<br />
+<span id="msg"></span>
+
+<table>
+	<tr>
+		<td style="width: 160px;">
+			Nome do documento
+		</td>
+		<td >
+			@Html.TextBox("documentName", "")
+            <br/>
+            <span class="field-validation-error"></span>
+		</td>
+	</tr>
+	<tr>
+		<td class="grdColName" style="width: 160px;">
+			Ficheiro para upload
+		</td>
+		<td class="grdColValue">
+			<img alt="loading" id="uploadProgress" src="@Url.Content("~/Content/images/loading.gif")" style="width:30px;height:30px;display:none" />
+			
+			<div id="uploadDialog" >
+				<input type="file" size="13" id="fileToUpload" name="fileToUpload" />
+                <br/>
+                <br/>
+				<input type="button" onclick="Documents.UploadDocument('@Url.Action("StoreDocument", "Document", new { applicantId = Model.Applicant.ApplicantId, applicationId = Model.Application.ApplicationId})');" value="Upload" />
+			</div>
+		</td>
+	</tr>
+</table>
+</div>

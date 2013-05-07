@@ -1,0 +1,80 @@
+﻿@model object
+
+<h1>Criar Utilizador</h1>
+<table cellpadding="3" cellspacing="0" class="style1">
+    <tr>
+        <td align="right">
+            Primeiro Nome :
+        </td>
+        <td>
+            <input name="FirstName" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            Ultimo Nome :
+        </td>
+        <td>
+            <input name="LastName" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            Username :
+        </td>
+        <td>
+            <input name="UserId" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            Senha :
+        </td>
+        <td>
+            <input name="Password" type="password" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            Confirme a Senha:
+        </td>
+        <td>
+            <input name="ConfirmPassword" type="password" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            Email :
+        </td>
+        <td>
+            <input name="Email" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            Questão de segurança :
+        </td>
+        <td>
+            <input name="Question" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            Resposta de segurança :
+        </td>
+        <td>
+            <input name="Answer" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2">
+            <input id="btnSubmit" type="submit" value="Submit" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <strong style="color: red;">@(ViewBag.StatusMessage == null ? "" : ViewBag.StatusMessage) </strong>
+        </td>
+    </tr>
+</table>
+

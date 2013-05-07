@@ -1,0 +1,46 @@
+﻿@model object
+@{
+    Layout = "../Shared/_BlankMaster.cshtml";
+}
+@{ Html.BeginForm(); }
+<h1>Grana</h1>
+<h2>Login</h2>
+<table cellpadding="3" cellspacing="0" class="style1">
+    <tr>
+        <td align="right">
+            Username :
+        </td>
+        <td>
+            <input name="UserId" type="text" class="generic-input" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            Senha :
+        </td>
+        <td>
+            <input name="Password" type="password" class="generic-input" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            Lembrar senha :
+        </td>
+        <td>
+            <input name="RememberMe" type="checkbox" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2">
+            <input id="btnSubmit" type="submit" value="Entrar" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <strong style="color: red;">@(ViewBag.ErrorMessage == null ? "" : ViewBag.ErrorMessage) </strong>
+        </td>
+    </tr>
+</table>
+
+@{ Html.EndForm(); }
+

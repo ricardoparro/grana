@@ -1,0 +1,9 @@
+﻿@using Grana.Model.ViewModel.Documents
+@model DocumentRow 
+<tr>
+<td><a href="../@Model.Path">@Model.FileName</a> </td>
+<td>@Model.TimeAdded.ToShortDateString()</td>
+<td>@Model.TimeAdded.ToShortTimeString()</td>
+<td>@Model.Username</td>
+</tr>
+

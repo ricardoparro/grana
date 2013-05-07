@@ -1,0 +1,16 @@
+﻿@using Grana.Model
+@using Grana.Model.ViewModel.Notes
+@model List<NotesRow>
+<div id="listnotes-section" style="display: none;"  class="section listnotes">
+    <h2>Notas</h2>
+    <br/>
+    <div class="notesDialog"> 
+    <table id="notesTable" class="notesTable">
+        @foreach (NotesRow dialog in Model)
+        {
+            @Html.Partial("_NoteItem", dialog);
+        }
+    </table>
+    <br/>
+   </div>
+</div>

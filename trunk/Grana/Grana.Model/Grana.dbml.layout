@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.625, 22.25" name="GranaData">
+  <DataContextMoniker Name="/GranaDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2d946161-115f-4258-9e6d-01d27b234c4b" absoluteBounds="4.25, 1.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/GranaDataDataContext/Address" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ea18a75-3ad7-4a00-ad6d-39545c18d35a" absoluteBounds="4.265, 1.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" absoluteBounds="1, 0.875, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/GranaDataDataContext/Applicant" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f22910c7-bc70-4e54-83ae-c88f5730777a" absoluteBounds="1.0150000000000001, 1.335, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 3.47043754462139); (3.91666666666667 : 3.47043754462139 : JumpStart); (4.08333333333333 : 3.47043754462139 : JumpEnd); (4.25 : 3.47043754462139)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GranaDataDataContext/Applicant/Applicant_Address" />
+      <nodes>
+        <classShapeMoniker Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" />
+        <classShapeMoniker Id="2d946161-115f-4258-9e6d-01d27b234c4b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3b48fea0-9453-4734-8b18-9b9c37400999" absoluteBounds="0.875, 5, 2, 4.8477197265625">
+      <DataClassMoniker Name="/GranaDataDataContext/aspnet_Membership" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9ee459ec-42e2-4e50-8d4f-95d038d113b0" absoluteBounds="0.88999999999999968, 5.46, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 8.03649896484375); (2.88541666666667 : 8.03649896484375 : JumpStart); (3.05208333333333 : 8.03649896484375 : JumpEnd); (3.79166666666667 : 8.03649896484375 : JumpStart); (3.95833333333333 : 8.03649896484375 : JumpEnd); (4.71875 : 8.03649896484375); (4.71875 : 4.42470540364583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_Membership/aspnet_Membership_Address" />
+      <nodes>
+        <classShapeMoniker Id="3b48fea0-9453-4734-8b18-9b9c37400999" />
+        <classShapeMoniker Id="2d946161-115f-4258-9e6d-01d27b234c4b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.9375 : 5); (1.9375 : 4.37660970052083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_Membership/aspnet_Membership_Applicant" />
+      <nodes>
+        <classShapeMoniker Id="3b48fea0-9453-4734-8b18-9b9c37400999" />
+        <classShapeMoniker Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="231dd8e1-ce23-4412-9817-4fc1adc2e60a" absoluteBounds="4.875, 12.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/GranaDataDataContext/ContactType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f94622a1-5ea7-41ca-9231-61bc8974e2d0" absoluteBounds="4.89, 13.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eff96015-57b6-48b1-a704-160c887a6b14" absoluteBounds="1.625, 11.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/GranaDataDataContext/Contact" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d05f6ff-e16d-4626-9416-4c5fe7a4f8f8" absoluteBounds="1.6400000000000001, 11.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.96875 : 4.37660970052083); (2.96875 : 11.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/Applicant/Applicant_Contact" />
+      <nodes>
+        <classShapeMoniker Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" />
+        <classShapeMoniker Id="eff96015-57b6-48b1-a704-160c887a6b14" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.875 : 13.0152498372396); (3.625 : 13.0152498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/ContactType/ContactType_Contact" />
+      <nodes>
+        <classShapeMoniker Id="231dd8e1-ce23-4412-9817-4fc1adc2e60a" />
+        <classShapeMoniker Id="eff96015-57b6-48b1-a704-160c887a6b14" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.25 : 9.8477197265625); (2.25 : 11.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_Membership/aspnet_Membership_Contact" />
+      <nodes>
+        <classShapeMoniker Id="3b48fea0-9453-4734-8b18-9b9c37400999" />
+        <classShapeMoniker Id="eff96015-57b6-48b1-a704-160c887a6b14" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7bbfd3d2-ec5d-4ded-a887-22941d929988" absoluteBounds="5.375, 10, 2, 2.5401025390625">
+      <DataClassMoniker Name="/GranaDataDataContext/BankCard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14956b03-fa34-42c3-bf35-d7cc9faddde1" absoluteBounds="5.39, 10.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 4.31507023898237); (3.49903946153846 : 4.81410970052083); (4.63541666666667 : 4.81410970052083 : JumpStart); (4.80208333333333 : 4.81410970052083 : JumpEnd); (6.375 : 4.81410970052083); (6.375 : 10)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GranaDataDataContext/Applicant/Applicant_BankCard" />
+      <nodes>
+        <classShapeMoniker Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" />
+        <classShapeMoniker Id="7bbfd3d2-ec5d-4ded-a887-22941d929988" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 8.58275469075521); (2.88541666666667 : 8.58275469075521 : JumpStart); (3.05208333333333 : 8.58275469075521 : JumpEnd); (3.79166666666667 : 8.58275469075521 : JumpStart); (3.95833333333333 : 8.58275469075521 : JumpEnd); (5.22916666666667 : 8.58275469075521 : JumpStart); (5.39583333333333 : 8.58275469075521 : JumpEnd); (6.375 : 8.58275469075521); (6.375 : 10)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_Membership/aspnet_Membership_BankCard" />
+      <nodes>
+        <classShapeMoniker Id="3b48fea0-9453-4734-8b18-9b9c37400999" />
+        <classShapeMoniker Id="7bbfd3d2-ec5d-4ded-a887-22941d929988" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e160df39-b8c2-413d-8a0d-40e0ebac9621" absoluteBounds="1.625, 13.875, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/GranaDataDataContext/BankAgency" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3900717-a2ea-4847-844c-5060324d413e" absoluteBounds="1.6399999999999997, 14.335, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2bc39d6a-3b31-4ad2-9980-48859c344109" absoluteBounds="8, 6, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/GranaDataDataContext/BankAccount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a1f0a279-f275-4d62-aa15-8c09ed8b8387" absoluteBounds="8.015, 6.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 3.18453879957933); (3.375 : 4.75160970052083); (3.375 : 7.01824998242187); (3.79166666666667 : 7.01824998242187 : JumpStart); (3.95833333333333 : 7.01824998242187 : JumpEnd); (4.63541666666667 : 7.01824998242187 : JumpStart); (4.80208333333333 : 7.01824998242187 : JumpEnd); (5.22916666666667 : 7.01824998242187 : JumpStart); (5.39583333333333 : 7.01824998242187 : JumpEnd); (6.29166666666667 : 7.01824998242187 : JumpStart); (6.45833333333333 : 7.01824998242187 : JumpEnd); (7.49479291666667 : 7.01824998242187 : JumpStart); (7.66145958333333 : 7.01824998242187 : JumpEnd); (7.76041916666667 : 7.01824998242187 : JumpStart); (7.92708583333333 : 7.01824998242187 : JumpEnd); (8 : 7.01824998242187)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/Applicant/Applicant_BankAccount" />
+      <nodes>
+        <classShapeMoniker Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" />
+        <classShapeMoniker Id="2bc39d6a-3b31-4ad2-9980-48859c344109" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 7.45899573893229); (2.88541666666667 : 7.45899573893229 : JumpStart); (3.05208333333333 : 7.45899573893229 : JumpEnd); (3.79166666666667 : 7.45899573893229 : JumpStart); (3.95833333333333 : 7.45899573893229 : JumpEnd); (4.63541666666667 : 7.45899573893229 : JumpStart); (4.80208333333333 : 7.45899573893229 : JumpEnd); (5.22916666666667 : 7.45899573893229 : JumpStart); (5.39583333333333 : 7.45899573893229 : JumpEnd); (6.29166666666667 : 7.45899573893229 : JumpStart); (6.45833333333333 : 7.45899573893229 : JumpEnd); (7.49479291666667 : 7.45899573893229 : JumpStart); (7.66145958333333 : 7.45899573893229 : JumpEnd); (7.76041916666667 : 7.45899573893229 : JumpStart); (7.92708583333333 : 7.45899573893229 : JumpEnd); (8 : 7.45899573893229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_Membership/aspnet_Membership_BankAccount" />
+      <nodes>
+        <classShapeMoniker Id="3b48fea0-9453-4734-8b18-9b9c37400999" />
+        <classShapeMoniker Id="2bc39d6a-3b31-4ad2-9980-48859c344109" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a62f6a1f-5332-4991-b32d-7e0930bbada4" absoluteBounds="8.5, 10.875, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/GranaDataDataContext/Employment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="21efdbda-f5ac-4bf2-83b4-13b089d30dac" absoluteBounds="8.515, 11.335, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2 : 4.37660970052083); (2 : 4.9375); (2.88541666666667 : 4.9375 : JumpStart); (3.05208333333333 : 4.9375 : JumpEnd); (3.29166666666667 : 4.9375 : JumpStart); (3.45833333333333 : 4.9375 : JumpEnd); (3.79166666666667 : 4.9375 : JumpStart); (3.95833333333333 : 4.9375 : JumpEnd); (4.63541666666667 : 4.9375 : JumpStart); (4.80208333333333 : 4.9375 : JumpEnd); (5.3125 : 4.9375); (5.3125 : 12.6026025390625); (7.49479291666667 : 12.6026025390625 : JumpStart); (7.66145958333333 : 12.6026025390625 : JumpEnd); (7.76041916666667 : 12.6026025390625 : JumpStart); (7.92708583333333 : 12.6026025390625 : JumpEnd); (8.40625 : 12.6026025390625); (8.40625 : 12.6258048502604); (8.5 : 12.6258048502604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/Applicant/Applicant_Employment" />
+      <nodes>
+        <classShapeMoniker Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" />
+        <classShapeMoniker Id="a62f6a1f-5332-4991-b32d-7e0930bbada4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 9.12901041666667); (2.88541666666667 : 9.12901041666667 : JumpStart); (3.05208333333333 : 9.12901041666667 : JumpEnd); (3.79166666666667 : 9.12901041666667 : JumpStart); (3.95833333333333 : 9.12901041666667 : JumpEnd); (5.22916666666667 : 9.12901041666667 : JumpStart); (5.39583333333333 : 9.12901041666667 : JumpEnd); (6.29166666666667 : 9.12901041666667 : JumpStart); (6.45833333333333 : 9.12901041666667 : JumpEnd); (7.49479291666667 : 9.12901041666667 : JumpStart); (7.66145958333333 : 9.12901041666667 : JumpEnd); (7.76041916666667 : 9.12901041666667 : JumpStart); (7.92708583333333 : 9.12901041666667 : JumpEnd); (9.5 : 9.12901041666667); (9.5 : 10.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_Membership/aspnet_Membership_Employment" />
+      <nodes>
+        <classShapeMoniker Id="3b48fea0-9453-4734-8b18-9b9c37400999" />
+        <classShapeMoniker Id="a62f6a1f-5332-4991-b32d-7e0930bbada4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="710f7c72-5f3a-4d8d-b583-a011d0762e23" absoluteBounds="9.5, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/GranaDataDataContext/Note" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d74b3295-5a9c-47e2-83df-5d7e47908bb3" absoluteBounds="9.515, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2 : 0.875); (2 : 0.53125); (9.5 : 0.53125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GranaDataDataContext/Applicant/Applicant_Note" />
+      <nodes>
+        <classShapeMoniker Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" />
+        <classShapeMoniker Id="710f7c72-5f3a-4d8d-b583-a011d0762e23" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="800fc30d-41f6-44af-8be0-323b18d76939" absoluteBounds="6.375, 15.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/GranaDataDataContext/Application" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ab51d06-b3c8-49e6-8c6d-b108989e4132" absoluteBounds="6.39, 16.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.375 : 17.7019549042969); (4.125 : 17.7019549042969); (4.125 : 13.625); (3.95833333333333 : 13.625 : JumpStart); (3.79166666666667 : 13.625 : JumpEnd); (2.625 : 13.625); (2.625 : 13.4054996744792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/Application/Application_Contact" />
+      <nodes>
+        <classShapeMoniker Id="800fc30d-41f6-44af-8be0-323b18d76939" />
+        <classShapeMoniker Id="eff96015-57b6-48b1-a704-160c887a6b14" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.375 : 17.0200512695313); (10.7916666666667 : 17.0200512695313 : JumpStart); (10.9583333333333 : 17.0200512695313 : JumpEnd); (11.1875 : 17.0200512695313); (11.1875 : 2.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GranaDataDataContext/Application/Application_Note" />
+      <nodes>
+        <classShapeMoniker Id="800fc30d-41f6-44af-8be0-323b18d76939" />
+        <classShapeMoniker Id="710f7c72-5f3a-4d8d-b583-a011d0762e23" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.531252 : 4.37660970052083); (2.531252 : 4.75); (2.88541666666667 : 4.75 : JumpStart); (3.05208333333333 : 4.75 : JumpEnd); (3.3515964276843 : 4.75 : JumpStart); (3.51826309435096 : 4.75 : JumpEnd); (3.875 : 4.75); (3.875 : 17.0513032695313); (4.04166666666667 : 17.0513032695313 : JumpStart); (4.20833333333333 : 17.0513032695313 : JumpEnd); (6.375 : 17.0513032695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/Applicant/Applicant_Application" />
+      <nodes>
+        <classShapeMoniker Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" />
+        <classShapeMoniker Id="800fc30d-41f6-44af-8be0-323b18d76939" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cc19c8b4-4903-423e-b42a-734a15f7fc33" absoluteBounds="5.375, 14.25, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/GranaDataDataContext/ApplicationStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d987faf-91c4-4531-a4dc-5bbb907cfd15" absoluteBounds="5.39, 14.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.875 : 15.4439925130208); (6.875 : 15.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/ApplicationStatus/ApplicationStatus_Application" />
+      <nodes>
+        <classShapeMoniker Id="cc19c8b4-4903-423e-b42a-734a15f7fc33" />
+        <classShapeMoniker Id="800fc30d-41f6-44af-8be0-323b18d76939" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fec02931-0a05-4f88-a8a1-7f38ae0246d0" absoluteBounds="8.5, 3.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/GranaDataDataContext/aspnet_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78c9403d-1513-4ef7-a4bd-e910cc908e4c" absoluteBounds="8.515, 3.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.5 : 4.64985270182292); (7.66145958333333 : 4.64985270182292 : JumpStart); (7.49479291666667 : 4.64985270182292 : JumpEnd); (4.80208333333333 : 4.64985270182292 : JumpStart); (4.63541666666667 : 4.64985270182292 : JumpEnd); (3.43398288786926 : 4.64985270182292 : JumpStart); (3.25144912950722 : 4.64985270182292 : JumpEnd); (3.05208333333333 : 4.64985270182292 : JumpStart); (2.88541666666667 : 4.64985270182292 : JumpEnd); (2.61458533333333 : 4.64985270182292 : JumpStart); (2.44791866666667 : 4.64985270182292 : JumpEnd); (2.08333333333333 : 4.64985270182292 : JumpStart); (1.85416666666667 : 4.64985270182292 : JumpEnd); (0.90625 : 4.64985270182292); (0.90625 : 5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_User/aspnet_User_aspnet_Membership" />
+      <nodes>
+        <classShapeMoniker Id="fec02931-0a05-4f88-a8a1-7f38ae0246d0" />
+        <classShapeMoniker Id="3b48fea0-9453-4734-8b18-9b9c37400999" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10 : 3.125); (10 : 2.4631982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_User/aspnet_User_Note" />
+      <nodes>
+        <classShapeMoniker Id="fec02931-0a05-4f88-a8a1-7f38ae0246d0" />
+        <classShapeMoniker Id="710f7c72-5f3a-4d8d-b583-a011d0762e23" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6e1d151b-d956-4e0b-96c7-cad56454693a" absoluteBounds="12.375, 3.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/GranaDataDataContext/Document" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a700027-3ad7-4bc4-ab7a-ee3a2139feaf" absoluteBounds="12.39, 3.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 2.1414667723107); (4 : 2.1414667723107); (4 : 4.54970540364583); (4.63541666666667 : 4.54970540364583 : JumpStart); (4.80208333333333 : 4.54970540364583 : JumpEnd); (7.49479291666667 : 4.54970540364583 : JumpStart); (7.66145958333333 : 4.54970540364583 : JumpEnd); (8.25 : 4.54970540364583); (8.25 : 2.875); (9.91666666666667 : 2.875 : JumpStart); (10.0833333333333 : 2.875 : JumpEnd); (11.1041666666667 : 2.875 : JumpStart); (11.2708333333333 : 2.875 : JumpEnd); (13.375 : 2.875); (13.375 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GranaDataDataContext/Applicant/Applicant_Document" />
+      <nodes>
+        <classShapeMoniker Id="a4cdc7f9-ee1f-41b5-8fe9-79ace47403dc" />
+        <classShapeMoniker Id="6e1d151b-d956-4e0b-96c7-cad56454693a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.8437525 : 15.75); (7.8437525 : 5.49924967447917); (10.6354166666667 : 5.49924967447917 : JumpStart); (10.8020833333333 : 5.49924967447917 : JumpEnd); (11.1041666666667 : 5.49924967447917 : JumpStart); (11.2708333333333 : 5.49924967447917 : JumpEnd); (12.375 : 5.49924967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/Application/Application_Document" />
+      <nodes>
+        <classShapeMoniker Id="800fc30d-41f6-44af-8be0-323b18d76939" />
+        <classShapeMoniker Id="6e1d151b-d956-4e0b-96c7-cad56454693a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5 : 4.39024983723958); (11.1041666666667 : 4.39024983723958 : JumpStart); (11.2708333333333 : 4.39024983723958 : JumpEnd); (12.375 : 4.39024983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_User/aspnet_User_Document" />
+      <nodes>
+        <classShapeMoniker Id="fec02931-0a05-4f88-a8a1-7f38ae0246d0" />
+        <classShapeMoniker Id="6e1d151b-d956-4e0b-96c7-cad56454693a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5c146db1-4b56-4560-a69b-8a0ad40b9446" absoluteBounds="1.5, 20.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/GranaDataDataContext/Reason" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c958b1a-4317-4799-8218-da787b56a1d6" absoluteBounds="1.5149999999999997, 20.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef423d0a-1d22-4ea3-a6bc-887faac986bd" absoluteBounds="7, 20.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/GranaDataDataContext/ReasonLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ade042f-084f-40a8-907d-72c855eb6c8d" absoluteBounds="7.0150000000000006, 20.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.6875 : 18.2901025390625); (7.6875 : 20.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/Application/Application_ReasonLog" />
+      <nodes>
+        <classShapeMoniker Id="800fc30d-41f6-44af-8be0-323b18d76939" />
+        <classShapeMoniker Id="ef423d0a-1d22-4ea3-a6bc-887faac986bd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5 : 5.28049967447917); (10.875 : 5.65549967447917); (10.875 : 19.875); (9.375 : 19.875); (9 : 20.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_User/aspnet_User_ReasonLog" />
+      <nodes>
+        <classShapeMoniker Id="fec02931-0a05-4f88-a8a1-7f38ae0246d0" />
+        <classShapeMoniker Id="ef423d0a-1d22-4ea3-a6bc-887faac986bd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 20.8806469726563); (7 : 20.8806469726563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GranaDataDataContext/Reason/Reason_ReasonLog" />
+      <nodes>
+        <classShapeMoniker Id="5c146db1-4b56-4560-a69b-8a0ad40b9446" />
+        <classShapeMoniker Id="ef423d0a-1d22-4ea3-a6bc-887faac986bd" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3b0a79a9-92da-4728-9964-63d3981a4252" absoluteBounds="6.375, 0.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/GranaDataDataContext/ActionLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="758f1127-acee-4794-9851-8b7cd339093e" absoluteBounds="6.39, 1.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.57812625 : 15.75); (7.57812625 : 2.39589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GranaDataDataContext/Application/Application_ActionLog" />
+      <nodes>
+        <classShapeMoniker Id="800fc30d-41f6-44af-8be0-323b18d76939" />
+        <classShapeMoniker Id="3b0a79a9-92da-4728-9964-63d3981a4252" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 3.83735270182292); (8.33333333333333 : 3.83735270182292 : JumpStart); (8.16666666666667 : 3.83735270182292 : JumpEnd); (7.66145958333333 : 3.83735270182292 : JumpStart); (7.49479291666667 : 3.83735270182292 : JumpEnd); (6.945310625 : 3.83735270182292); (6.945310625 : 2.39589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GranaDataDataContext/aspnet_User/aspnet_User_ActionLog" />
+      <nodes>
+        <classShapeMoniker Id="fec02931-0a05-4f88-a8a1-7f38ae0246d0" />
+        <classShapeMoniker Id="3b0a79a9-92da-4728-9964-63d3981a4252" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

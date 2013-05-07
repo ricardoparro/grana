@@ -1,0 +1,145 @@
+body {
+    background-color: #AFBCC8;
+    border-top: 1px solid #9CACBC;
+    color: #212F40;
+    font-family: proxima-nova,"Helvetica Neue",Arial,sans-serif;
+    line-height: 1;
+     border: 0 none;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, textarea {
+    border: 0 none;
+    font-family:  proxima-nova,"Helvetica Neue",Arial,sans-serif;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+#topbar {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 3px;
+    margin-top: -1px;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Menu */
+
+
+	 
+.clear{clear:both;}
+	 
+#menu { /* the menu container */
+	background: #57ade5;
+	width: 100%;
+	font-size: 13px;
+}
+	 
+#menu ul { /* menu ul style */
+	list-style: none;
+	margin: 0;
+}
+	 
+#menu li { /* horizontal menu */
+	float: left;
+	position: relative;
+}
+	 
+#menu a { /* the link style of menu */
+	color: #ffffff;
+	display: block;
+	line-height: 38px;
+	padding: 0 10px;
+	text-decoration: none;
+	border-right:1px solid #666;
+}
+
+
+#menu ul ul {
+	    display: none;
+        position: absolute;
+	    top: 38px;
+	    left: 0;
+	    float: left;
+	    width: 180px;
+	    z-index: 99999;
+}
+	 
+	/* The sub menu list element is given a minimum width */
+#menu ul ul li {
+	min-width: 180px;
+}
+	 
+/* the third level menu (sub sub menu) is placed to the left side of its parent*/
+#menu ul ul ul {
+	left: 100%;
+	top: 0;
+}
+	 
+#menu ul ul a {
+	background: #91c2e1;
+	line-height: 1em;
+	padding: 10px;
+	width: 160px;
+	height: auto;
+}
+	 
+#menu li:hover > a,
+#menu ul ul :hover > a {
+	background: #57ade5;
+	color: #fffbfb;
+}
+#menu ul li:hover > ul {
+	display: block;
+}
+
+/* When the mouse is over a list (li) element with unordered-list (ul) element inside then show it. The position when its shown is defined in the previous block of CSS*/
+#menu ul li:hover > ul {
+	display: block;
+}
+	 
+/* Styles the anchor (a) tag when mouse over */
+#menu li:hover > a,
+#menu ul ul :hover > a {
+	background: #57ade5;
+	color: #fffbfb;
+}
+
+/* Generic Inputs */
+
+.generic-input {
+    font-size: 14px;
+    padding: 5px 5px 3px;
+}

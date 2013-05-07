@@ -1,0 +1,9 @@
+﻿@using Grana.Model.ViewModel.Notes
+@model NotesRow 
+<tr>
+<td>@Model.Text</td>
+<td>@Model.DateAdded.ToShortDateString()</td>
+<td>@Model.DateAdded.ToShortTimeString()</td>
+<td>@Model.UserName</td>
+</tr>
+

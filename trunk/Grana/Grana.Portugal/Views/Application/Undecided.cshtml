@@ -1,0 +1,66 @@
+﻿@using Grana.Model.ViewModel.Application
+@model UndecidedAppsModel
+
+
+<div class="application-list" style="height:100%;margin:auto;" >
+    <div id="leftPanel" >
+        <div id="application_header">
+            <div onclick="ApplicationDetails.ShowInfoSection('summary');">
+                <div class="applicant-name">
+                    <div class="header-name read-only"  tabindex="-1"> <span id="first-name">Pendentes: @Model.ApplicationsCount </span> <span id="last-name"></span></div></div>
+            </div>
+            <div id="header_toolbar">
+                <div class="loading-boundary">
+                    <div id="header_toolbar_container">
+                        <table class="toolbar">
+                            <tr>
+                                <td class="toolbar-column">
+                                    
+                                </td>
+                                <td class="toolbar-column-wide"></td>
+                                <td class="toolbar-column"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="toggle-group">
+                <div class="ui-dialog-buttonpane toggle-button unselected">
+                    <span class="button-text"></span>
+                </div>
+            </div>
+            <div class="applicationStatus"></div>
+        </div>
+        </div>
+        <div id="mainPanel" >
+        
+        <table id="grid">
+        
+            <thead>
+                <th></th>
+                <th style="text-align: left;padding:6px;"> Data de entrada</th>
+                <th style="text-align: left;padding:6px;">Nome</th>
+                <th style="text-align: left;padding:6px;">Email</th>
+                <th style="text-align: left;padding:6px;">Valor</th>
+                <th style="text-align: left;padding:6px;">Data de pagamento</th>
+                <th style="text-align: left;padding:6px;"></th>
+            </thead>
+            @foreach (UndecidedApplication newApp in Model.UndecidedApplicationsRows)
+            {
+            <tr class="stripe completed grid_row project_group">
+                <td class="grid_cell_item_number">
+                </td>
+                 <td  style="width: 160px;">@newApp.ApplicationDate.ToShortDateString() @newApp.ApplicationDate.ToShortTimeString()</td>
+                <td  style="width: 450px;">@newApp.FirstName @newApp.MiddleName @newApp.LastName</td>
+                <td  style="width: 250px;">@newApp.Email</td>
+                <td >R$@newApp.LoanAmount.ToString("N0")</td>
+                <td>@newApp.LoanPaybackDate.ToShortDateString()</td>
+                <td>
+                    @Html.ActionLink("detalhes", "ApplicationDetails", new {applicationId= newApp.ApplicationId})
+                </td>
+            </tr>}
+                
+        </table>
+    </div>
+    </div>
+    

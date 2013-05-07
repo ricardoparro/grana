@@ -1,0 +1,22 @@
+﻿<div id="note-section" style="display: none;"  class="section note">
+    <h2>Adicionar nota</h2>
+    <br/>
+    <br/>
+    <table >
+        <tr>
+            <td >Nota </td>
+            <td>
+                @Html.TextArea("noteText", new{@class="field-description generic-input placeholder"})
+               
+                <br/>
+                <span class="field-validation-error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" onclick="ApplicationDetails.AddNote('@Url.Action("AddNote")', @Model.Application.ApplicationId, @Model.Applicant.ApplicantId)" value="Adicionar Nota"/>
+            </td>
+        </tr>
+    </table>
+</div>

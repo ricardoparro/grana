@@ -1,0 +1,33 @@
+﻿@using Grana.Model
+@using Grana.Model.EnumModel
+@model Applicant
+<div class="section @StringHelper.RemoveDiacritics(FormSections.Name)">
+        <table id="name-table">
+            <tr>
+                <td >Nome: </td>
+                <td>
+                    @Html.TextBox("Applicant.FirstName", @Model.FirstName, new{@class="generic-input"}) <br/>
+                    <span class="field-validation-error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td >Outros nomes: </td>
+                <td>
+                    @Html.TextBox("Applicant.MiddleNames", @Model.MiddleNames, new { @class = "generic-input" }) <br/> 
+                    <span class="field-validation-error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Sobrenome: </td>
+                <td>
+                    @Html.TextBox("Applicant.LastName", @Model.LastName, new { @class = "generic-input" }) <br/>
+                    <span class="field-validation-error"></span>                    
+                </td>
+            </tr>
+              
+            <tr>
+                <td></td>
+                <td><input type="button" onclick="ApplicationDetails.UpdateApplicationDetails('@Url.Action("ApplicationDetails")')" value="Alterar"/></td>
+            </tr>
+        </table>
+  </div>
